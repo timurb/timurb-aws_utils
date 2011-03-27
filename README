@@ -1,0 +1,8 @@
+aws_creds.rb is used to fill AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY variables from AWS_CREDENTIAL_FILE
+
+ec2.rb is a bunch of helpers to use them in irb
+
+EC2Conn automatically sets up connection on first use (using credentials from aws_creds) so you need not invoke it by hand.
+EC2Conn.groups prints all security groups which include at least one instance.
+EC2Conn.each_group runs the specified block for each instance of specified group (or groups)
+All other method calls are passed to RightAws::Ec2 object.
