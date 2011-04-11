@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.push File.dirname(__FILE__)
+
+require 'ec2'
+
+EC2Conn.instances.each do |instance|
+  ARGV.each do |tag|
+    puts "#{instance[:tags]["Name"]}	#{instance[:aws_instance_id]}	#{instance[:dns_name]}"   if instance[:tags]["Name"].to_s.match(tag)
+  end
+end
