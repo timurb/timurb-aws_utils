@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH.push File.dirname(__FILE__)
-
-require 'ec2'
+require 'rubygems'
+require 'timurb-ec2'
 
 EC2Conn.instances.each do |instance|
   ARGV.each do |tag|

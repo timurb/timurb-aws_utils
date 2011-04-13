@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require 'aws_creds'
+require 'rubygems'
+require 'timurb-aws_creds'
+require 'right_aws'
 require 'logger'
 
 class EC2Conn
