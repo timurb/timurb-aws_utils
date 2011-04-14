@@ -12,7 +12,7 @@ require 'rake/testtask'
 
 spec = Gem::Specification.new do |s|
   s.name = 'timurb-aws_utils'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
   s.summary = 'AWS helper tools'
@@ -23,7 +23,7 @@ spec = Gem::Specification.new do |s|
   s.files = %w(LICENSE README Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
   s.require_path = "lib"
   s.bindir = "bin"
-  s.add_dependency('right_aws', ['>=2.1.0'])
+  s.add_dependency('right_aws')
 end
 
 Rake::GemPackageTask.new(spec) do |p|
