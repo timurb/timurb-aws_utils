@@ -12,7 +12,7 @@ class EC2Conn
     @@groups = nil
     
     def ec2( opts = {} )
-      @@ec2=RightAws::Ec2.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], :logger => Logger.new( opts[:logger] )) \
+      @@ec2=RightAws::Ec2.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], :logger => opts[:logger] || Logger.new( nil )) \
         unless @@ec2
       @@ec2
     end
