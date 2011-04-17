@@ -73,13 +73,14 @@ class EC2Conn
     def wait_snapshot(snapshots)
       snapshots = [snapshots].flatten.compact
       loop do
-        break unless catch(:pending) do
-          ec2.describe_snapshots(snapshots).each do |snap|
-            throw(:pending, snap) if snap[:aws_status] == 'pending'
-            snap[:aws_status]!='completed' &&  p(snap)
+        break unless
+          catch(:pending) do
+            ec2.describe_snapshots(snapshots).each do |snap|
+              throw(:pending, snap) if snap[:aws_status] == 'pending'
+              snap[:aws_status]!='completed' &&  p(snap)
+            end
+            nil
           end
-          nil
-        end
       end
     end
 
