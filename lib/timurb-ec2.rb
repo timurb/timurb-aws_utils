@@ -56,8 +56,9 @@ class EC2Conn
 
     def find_instance_by_ip(ip)
       instances.each do |instance|
-        return instance if instance[:ip_address] == ip
+        return instance if instance[:ip_address] == ip || instance[:private_ip_address] == ip
       end
+      nil
     end
 
     def instance_vol_by_name(instance, vol_name)
