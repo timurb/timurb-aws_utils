@@ -76,6 +76,7 @@ class EC2Conn
       loop do
         break unless
           catch(:pending) do
+            sleep 1	# to avoid Request Limit Exceeded exception
             ec2.describe_snapshots(snapshots).each do |snap|
               throw(:pending, snap) if snap[:aws_status] == 'pending'
               snap[:aws_status]!='completed' &&  p(snap)
