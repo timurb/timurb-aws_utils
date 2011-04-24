@@ -12,7 +12,7 @@ require 'rake/testtask'
 
 spec = Gem::Specification.new do |s|
   s.name = 'timurb-aws_utils'
-  s.version = '0.0.4'
+  s.version = '0.0.5'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
   s.summary = 'AWS helper tools'
